@@ -129,7 +129,7 @@ DATABASES = {
     }
 }
 
-ELASTICSEARCH_URI = os.environ['ELASTICSEARCH_URL'],
+ELASTICSEARCH_URI = os.environ['ELASTICSEARCH_URL']
 ELASTICSEARCH_DSL = {
     'default': {
         'hosts': ELASTICSEARCH_URI.split('http://')[1]
