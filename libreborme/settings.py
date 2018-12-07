@@ -19,9 +19,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '41+h()yq5-!*=)sh+_%4wal8=+*e)dlrau*81odpu7n&9^7d5h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ['DEBUG'] == 1 
 
-ALLOWED_HOSTS = ['127.0.0.1', 'libreborme.net']
+ALLOWED_HOSTS = ['127.0.0.1', os.environ['DOMAIN']]
 
 
 # Application definition
@@ -121,23 +121,23 @@ WSGI_APPLICATION = 'libreborme.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'libreborme',
-        'USER': 'libreborme',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
-        'PORT': '',
+        'NAME':   os.environ['LB_DB'], 'libreborme',
+        'USER': os.environ['LB_USERNAME'],,
+        'PASSWORD': os.environ['LB_PASSWORD'],
+        'HOST': os.environ['LB_HOST'],
+        'PORT': '5432',
     }
 }
 
-ELASTICSEARCH_URI = "http://elastic:changeme@localhost:9200"
+ELASTICSEARCH_URI = os.environ['ELASTICSEARCH_URL'],
 ELASTICSEARCH_DSL = {
     'default': {
         'hosts': ELASTICSEARCH_URI.split('http://')[1]
     },
 }
 
-# ELASTICSEARCH_DSL_AUTOSYNC = False
-# ELASTICSEARCH_DSL_AUTO_REFRESH = False
+ELASTICSEARCH_DSL_AUTOSYNC = True
+ELASTICSEARCH_DSL_AUTO_REFRESH = True
 
 TASTYPIE_DEFAULT_FORMATS = ['json']
 
@@ -186,3 +186,29 @@ HOST_BUCKET = "https://libreborme-prod.ams3.digitaloceanspaces.com"
 
 INTERNAL_IPS = ('127.0.0.1')
 LOGIN_URL = '/admin/login/'
+
+
+STATICFILES_DIRS = (
+    '/root/LibreBorme/libreborme/libreborme/static/',
+)
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    #'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
+
+STATIC_ROOT = '/root/LibreBorme/static'
+
+TEMPLATE_DIRS = (
+    '/root/LibreBorme/libreborme/libreborme/templates/',
+    '/root/LibreBorme/libreborme/borme/templates/',
+)
+
+FIXTURE_DIRS = (
+    '/root/LibreBorme/libreborme/libreborme/fixtures/',
+)
+
+SECRET_KEY = '41+h()yq5-!*=)sh+_%4wal8=+*e)dlrau*81odpu7n&9^7d5h'
+
+
