@@ -189,7 +189,7 @@ LOGIN_URL = '/admin/login/'
 
 
 STATICFILES_DIRS = (
-    '/root/LibreBorme/libreborme/libreborme/static/',
+    '/app/libreborme/libreborme/static/',
 )
 
 STATICFILES_FINDERS = (
@@ -198,7 +198,7 @@ STATICFILES_FINDERS = (
     #'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-STATIC_ROOT = '/root/LibreBorme/static'
+STATIC_ROOT = '/app/libreborme/static'
 
 TEMPLATE_DIRS = (
     '/root/LibreBorme/libreborme/libreborme/templates/',
