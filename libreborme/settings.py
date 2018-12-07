@@ -189,7 +189,7 @@ LOGIN_URL = '/admin/login/'
 
 
 STATICFILES_DIRS = (
-    '/app/libreborme/libreborme/static/',
+    '/app/static/',
 )
 
 STATICFILES_FINDERS = (
@@ -201,12 +201,12 @@ STATICFILES_FINDERS = (
 STATIC_ROOT = '/app/libreborme/static'
 
 TEMPLATE_DIRS = (
-    '/root/LibreBorme/libreborme/libreborme/templates/',
-    '/root/LibreBorme/libreborme/borme/templates/',
+    '/app/libreborme/templates/',
+    '/app/borme/templates/',
 )
 
 FIXTURE_DIRS = (
-    '/root/LibreBorme/libreborme/libreborme/fixtures/',
+    '/app/libreborme/fixtures/',
 )
 
 SECRET_KEY = '41+h()yq5-!*=)sh+_%4wal8=+*e)dlrau*81odpu7n&9^7d5h'
