@@ -16,7 +16,7 @@ class Command(BaseCommand):
         year = options["year"]
 
         cd = PersonDocument()
-        c = tqdm(Company.objects.filter(date_updated__year=year).iterator())
+        c = tqdm(Person.objects.filter(date_updated__year=year).iterator())
         cd.update(thing=c)
         print()
 
